@@ -13,7 +13,10 @@
 </head>
 </head>
 
-<body class="bg-[#f4f5f7] h-[100vh] flex justify-center items-center ">
+<body class="bg-[#f4f5f7] h-[100vh] flex justify-center items-center flex-col  ">
+    <div class="w-[300px] h-[130px] bg-[url(assets/bg.png)] bg-cover flex justify-center items-center">
+        <img src="assets/Group.png" alt="">
+    </div>
     <form class="w-[350px]">
         <div class="p-8 bg-white rounded-3xl">
             <div>
@@ -30,10 +33,10 @@
                     class="input" />
             </div>
 
-            <button class="btn btn-primary bg-[#0874f2] border-none rounded-3xl mt-4 w-full">Login</button>
+            <button id="login-btn" class="btn btn-primary bg-[#0874f2] border-none rounded-3xl mt-4 w-full">Login</button>
         </div>
     </form>
 
 </body>
-
+<script src="script.js"></script>
 </html>
