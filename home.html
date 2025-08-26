@@ -47,7 +47,7 @@
                 <img class="mx-auto" src="assets/send1.png" alt="">
                 <h3 class="font-bold text-center">Cashout</h3>
             </div>
-            <div class="border-2 border-gray-400  p-3 rounded-2xl">
+            <div id="transfer-money-button" class="border-2 border-gray-400  p-3 rounded-2xl">
                 <img class="mx-auto" src="assets/money1.png" alt="">
                 <h3 class="font-bold text-center">Transfer Money</h3>
             </div>
@@ -66,7 +66,7 @@
         </div>
     </div>
     <!-- Add-money -->
-    <div id="add-money-parent" class="max-w-lg mx-auto mt-7 p-4 ">
+    <div id="add-money-parent" class="form max-w-lg mx-auto mt-7 p-4 ">
         <h2 class="font-bold mb-4">Add Money</h2>
         <form class="w-full">
             <div class="p-8 bg-white rounded-3xl">
@@ -107,7 +107,7 @@
     </div>
 
     <!-- Cash Out -->
-    <div style="display: none;" id="cash-out-parent" class="max-w-lg mx-auto mt-7 p-4 ">
+    <div style="display: none;" id="cash-out-parent" class="form max-w-lg mx-auto mt-7 p-4 ">
         <h2 class="font-bold mb-4">Cash Out</h2>
         <div class="p-8 bg-white rounded-3xl">
             <form class="w-full" action="">
@@ -126,11 +126,41 @@
                 <div class="mt-4">
                     <label class="font-bold" for="">Pin Number</label>
                     <br>
-                    <input id="pin-number" class="rounded-3xl p-3 mt-2 bg-[#F4F5F7] w-full border-none" type="text"
+                    <input id="pin-number-cash-out" class="rounded-3xl p-3 mt-2 bg-[#F4F5F7] w-full border-none" type="text"
                         placeholder="Enter 4 digit pin number" class="input" />
                 </div>
 
                 <button id="withdraw-money-btn"
+                    class="btn btn-primary bg-[#0874f2] border-none rounded-3xl mt-4 w-full">Withdraw Money</button>
+        </div>
+        </form>
+    </div>
+    
+    <!-- Transfer Money -->
+    <div style="display: none;" id="transfer-money-parent" class="form max-w-lg mx-auto mt-7 p-4 ">
+        <h2 class="font-bold mb-4">Transfer Money</h2>
+        <div class="p-8 bg-white rounded-3xl">
+            <form class="w-full" action="">
+                <div>
+                    <label class="font-bold" for="">User Account Number</label>
+                    <br>
+                    <input id="user-account-number" class="rounded-3xl p-3 mt-2 bg-[#F4F5F7] w-full border-none" type="text"
+                        placeholder="Enter 11 digit number" class="input" />
+                </div>
+                <div class="mt-4">
+                    <label class="font-bold" for="">Amount</label>
+                    <br>
+                    <input id="amount-transfer-money" class="rounded-3xl p-3 mt-2 bg-[#F4F5F7] w-full border-none" type="text"
+                        placeholder="Enter amount to transfer money" class="input" />
+                </div>
+                <div class="mt-4">
+                    <label class="font-bold" for="">Pin Number</label>
+                    <br>
+                    <input id="pin-number-transfer-money" class="rounded-3xl p-3 mt-2 bg-[#F4F5F7] w-full border-none" type="text"
+                        placeholder="Enter 4 digit pin number" class="input" />
+                </div>
+
+                <button id="send-now-button"
                     class="btn btn-primary bg-[#0874f2] border-none rounded-3xl mt-4 w-full">Withdraw Money</button>
         </div>
         </form>

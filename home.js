@@ -1,16 +1,40 @@
+    function getInputValueNumber(id){
+    const inputField = document.getElementById(id);
+    const inputFieldValue = inputField.value;
+    const inputFieldValueNumber = parseInt(inputFieldValue);
+    return inputFieldValueNumber;
+    }
+
+    function getInputValue (id){
+    const inputValue = document.getElementById(id);
+    const inputValueFinal = inputValue.value;
+    return inputValueFinal;
+    }
+
+    function getInnerText (id){
+    const innerTextElement = document.getElementById(id);
+    const innerTextElementValue = parseInt(innerTextElement.innerText);
+    return innerTextElementValue;
+    }
+
+    function setInnerText (value){
+        const setInnerTextElement = document.getElementById("available-balance");
+        setInnerTextElement.innerText = value;
+    }
+
+
 document.getElementById("add-money-btn").addEventListener("click", function (e) {
     e.preventDefault();
     const validPin = 1234;
 
     const bank = document.getElementById("bank").value;
-    const accountNumber = document.getElementById("account-number").value;
-    const addAmount = document.getElementById("add-amount").value;
-    const addAmountConverted = parseInt(addAmount);
-    const pinNumber = document.getElementById("pin-number").value;
+    const accountNumber = getInputValue("account-number");
+    const addAmount = getInputValueNumber("add-amount")
+    const pinNumber = getInputValueNumber("pin-number");
 
-    const availableBalance = parseInt(document.getElementById("available-balance").innerText);
+    const availableBalance = getInnerText ("available-balance");
 
-    if (bank === "" || accountNumber === "" || addAmountConverted === "" || pinNumber === "") {
+    if (bank === "" || accountNumber === "" || addAmount === "" || pinNumber === "") {
         alert("Please fill out all fields");
         return;
     }
@@ -20,36 +44,54 @@ document.getElementById("add-money-btn").addEventListener("click", function (e) 
     }
 
     if (pinNumber !== validPin) {
-        alert("Oh! Wrong Pin! Try again!")
+        alert("Oh! Wrong Pin! Try again!");
+        return;
     }
-    const totalAvailableBalance = availableBalance + addAmountConverted;
+    const totalAvailableBalance = availableBalance + addAmount;
 
-    document.getElementById("available-balance").innerText = totalAvailableBalance;
+    setInnerText (totalAvailableBalance);
 
 })
+
+function buttonHandler (id){
+const forms = document.getElementsByClassName ("form");
+console.log(forms);
+for (const form of forms){
+    form.style.display = "none";
+}
+
+document.getElementById(id).style.display = "block";
+}
 
 
 document.getElementById("add-money-button").addEventListener("click", function () {
-    document.getElementById("cash-out-parent").style.display = "none";
-    document.getElementById("add-money-parent").style.display = "block";
+buttonHandler ("add-money-parent");
 })
 
 document.getElementById("cash-out-button").addEventListener("click", function () {
-    document.getElementById("add-money-parent").style.display = "none";
-    document.getElementById("cash-out-parent").style.display = "block";
+buttonHandler ("cash-out-parent");
+
+})
+
+document.getElementById("transfer-money-button").addEventListener("click", function () {
+buttonHandler ("transfer-money-parent");
+
 })
 
 
 document.getElementById("withdraw-money-btn").addEventListener("click", function (e) {
     e.preventDefault();
+
+
+    // const validAgentNumber = 12341234123;
     const validPin = 1234;
-    const agentNumber = document.getElementById("agent-number").value;
-    const amount = parseInt(document.getElementById("amount").value);
-    const pinNumber = parseInt(document.getElementById("pin-number").value);
+    const agentNumber = getInputValue("agent-number"); 
+    const amount = getInputValueNumber("amount");
+    const pinNumberCashOut = getInputValueNumber("pin-number-cash-out");
 
-    const availableBalance = parseInt(document.getElementById("available-balance").innerText);
+    const availableBalance = getInnerText ("available-balance");
 
-    if (agentNumber === "" || amount === "" || pinNumber === "") {
+    if (agentNumber === "" || isNaN(amount) || isNaN(pinNumberCashOut)) {
         alert("Please fill out all fields");
         return;
     }
@@ -59,10 +101,11 @@ document.getElementById("withdraw-money-btn").addEventListener("click", function
         return;
     }
 
-    if (pinNumber !== validPin) {
+    if (pinNumberCashOut !== validPin) {
         alert("Oh! Wrong Pin! Try again!");
+        return;
     }
 
-    totalAvailableBalance = availableBalance - amount;
-    document.getElementById("available-balance").innerText = totalAvailableBalance;
-})
+    const totalAvailableBalance = availableBalance - amount;
+    setInnerText(totalAvailableBalance) ;
+});
