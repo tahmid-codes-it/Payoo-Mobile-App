@@ -23,6 +23,12 @@
     }
 
 
+
+document.getElementById("log-out-button").addEventListener("click", function(){
+    alert("Are you sure you want to log out? Press OK to confirm.")
+    window.location.href = "index.html";
+})    
+
 document.getElementById("add-money-btn").addEventListener("click", function (e) {
     e.preventDefault();
     const validPin = 1234;
@@ -75,6 +81,16 @@ buttonHandler ("cash-out-parent");
 
 document.getElementById("transfer-money-button").addEventListener("click", function () {
 buttonHandler ("transfer-money-parent");
+
+})
+document.getElementById("get-bonus-button").addEventListener("click", function () {
+buttonHandler ("get-bonus-parent");
+// console.log("bonus btn clicked")
+
+})
+document.getElementById("pay-bill-button").addEventListener("click", function () {
+buttonHandler ("pay-bill-parent");
+// console.log("bonus btn clicked")
 
 })
 
